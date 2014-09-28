@@ -28,3 +28,15 @@ app.use('/', router);
 app.listen(3000, function () {
 	console.log("the cat is ready to dance");
 });
+
+
+var AlarmClock = require('./lib/alarm');
+var interval = setInterval(function() {
+	var now = new Date;
+	var currentTime = {
+		hour: now.getHours(),
+		minute: now.getMinutes()
+	};
+	console.log('time: ', currentTime);
+	AlarmClock(currentTime);
+}, 60000);
