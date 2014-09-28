@@ -52,12 +52,13 @@ void loop() {
     
       if (numPets == 3) {
         digitalWrite(motorPin, LOW);
+        digitalWrite(servoPin, LOW);
       } else if (numPets < 3) {
         if (first < 0 && sensorValue > 0 && sensorValue < 200) {
           first = sensorValue;
           Serial.println("low: ");
           Serial.println(first);
-        } else if (first > 0 && sensorValue > first && sensorValue > 700){
+        } else if (first > 0 && sensorValue > 700){
           numPets++;
           Serial.println("**************Stroke number: ");
           Serial.println(numPets);
