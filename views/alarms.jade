@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+
+	head
+		title The Alarming Robotic Dancing Cat Chase
+		link(rel='stylesheet', href='/style.css', type='text/css')
+	body
+		#content(align='center')
+			h1 The Alarming Robotic Dancing Cat Chase
+			form(method="POST")
+				#step
+					h3 Your Alarms
+					each alarm in alarms
+						span.alarmTime #{alarm.hour}:#{alarm.minute} - #{alarm.song}
+						br
+
+				#step
+					a(href="/") return
+script(src="http://code.jquery.com/jquery-1.11.0.min.js")

@@ -14,10 +14,17 @@ module.exports = function (router) {
 				});
 			});
 		})
+		.get('/alarms', function(request, response) {
+			Alarm.getAlarms(function (err, docs) {
+				response.render("alarms", {
+					alarms: docs
+				});
+			});
+		})
 		.post('/', function (request, response) {
 			console.log(request.body)
 			Alarm.setAlarm(request.body, function (err, newDoc) {
-				response.json(newDoc)
+				response.redirect('/alarms');
 			});
 		})
 	;
