@@ -14,7 +14,7 @@ module.exports = function (router) {
 				});
 			});
 		})
-		.get('/alarms', function(request, response) {
+		.get('/alarms', function (request, response) {
 			Alarm.getAlarms(function (err, docs) {
 				response.render("alarms", {
 					alarms: docs
@@ -22,13 +22,17 @@ module.exports = function (router) {
 			});
 		})
 		.post('/', function (request, response) {
-			console.log(request.body)
 			Alarm.setAlarm(request.body, function (err, newDoc) {
 				response.redirect('/alarms');
 			});
 		})
 		.get('/alarmstatus', function (request, response) {
 			Alarm.alarmStatus(function (data) {
+				response.send(data);
+			});
+		})
+		.get('/turnOffAlarm', function (request, response) {
+			Alarm.turnOffAlarm(function (data) {
 				response.send(data);
 			});
 		})

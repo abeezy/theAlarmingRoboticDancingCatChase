@@ -50,4 +50,4 @@ var interval = setInterval(function() {
 	};
 	console.log('time: ', currentTime);
 	Alarm.alarmClock(currentTime);
-}, 2000);
+}, 60000);

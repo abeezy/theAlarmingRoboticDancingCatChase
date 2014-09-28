@@ -4,11 +4,10 @@
 	    	url: '/alarmstatus',
 	    	complete: doPoll,
 	    	success: function(data) {
-	        	console.log(data);
 	        	if (data == true) {
-	        		console.log('play nyancat');
+	        		document.getElementById('alarmAudio').play()
 	        	} else {
-	        		console.log('no nyancat');
+	        		document.getElementById('alarmAudio').pause()
 	        	}
 	    	},
 	    	error: function(err) {
@@ -18,3 +17,9 @@
 		})
 	}, 2000);
 })();
+
+$('#stop').click(function(e) {
+	e.preventDefault();
+	document.getElementById('alarmAudio').pause()
+	$.get('/turnOffAlarm')
+})
