@@ -1,0 +1,85 @@
+<style>
+h1{
+	font-family: Arial-Black;
+	font-size: 34px;
+	color: #64467D;
+	text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+	margin: 0;
+}
+h2{
+	font-family: Arial-Black;
+	font-size: 24px;
+	color: #FFFFFF;
+	margin: 0;
+}
+h3{
+	font-family: Arial-BoldMT;
+	font-size: 24px;
+	color: #FFFFFF;
+	text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+	margin: 0;
+}
+h4{
+	font-family: Arial-Black;
+	font-size: 18px;
+	color: #C82B3F;
+	text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+	margin: 0;
+}
+h5{
+	font-family: Arial-Black;
+	font-size: 10px;
+	color: #FFFFFF;
+	margin: 0;
+}
+h6{
+	font-family: Arial-Black;
+	font-size: 48px;
+	color: #4A4A4A;
+	margin: 0;
+}
+p{
+	font-family: ArialMT;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+#content{
+	width: 320px;
+	margin:auto;
+	padding-bottom: 10px;
+	background-image: url('catBackground.png');
+}
+#step{
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 10px;
+}
+#time{
+	border-radius: 12px;
+	background: #D8D8D8;
+	font-size: 24px;
+	padding: 4px;
+	border: 2px solid #979797;
+	-moz-box-shadow:    inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+	box-shadow:         inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+}
+#song{
+	border-radius: 12px;
+	background: #D8D8D8;
+	font-size: 24px;
+	padding: 4px;
+	border: 2px solid #979797;
+	-moz-box-shadow:    inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+	box-shadow:         inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+}
+#submit{
+	border-radius: 12px;
+	border: 0;
+	padding: 20px;
+	background: #64467D;
+	font-size: 24px;
+	color: #fff;
+	-moz-box-shadow:    0px 2px 4px 0px rgba(0,0,0,0.50);
+	box-shadow:         0px 2px 4px 0px rgba(0,0,0,0.50);
+}
+</style>
