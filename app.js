@@ -25,7 +25,8 @@ var router = require('./routes/index')(Router);
 app.use('/', servStatic(path.join(__dirname, 'views/static')));
 app.use('/', router);
 
-app.listen(3000, function () {
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
 	console.log("the cat is ready to dance");
 });
 
