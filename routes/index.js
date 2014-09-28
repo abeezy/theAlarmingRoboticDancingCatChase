@@ -8,13 +8,17 @@ module.exports = function (router) {
 			next();
 		})
 		.get('/', function (request, response) {
-			var wakeupTime = {
-				hour: 5,
-				minute: 5
-			};
-			//console.log(wakeupTime)
-			//Alarm.AlarmClock(wakeupTime);
-			response.render("index", {});
+			Alarm.getAlarms(function (err, docs) {
+				response.render("index", {
+					alarms: docs
+				});
+			});
+		})
+		.post('/', function (request, response) {
+			console.log(request.body)
+			Alarm.setAlarm(request.body, function (err, newDoc) {
+				response.json(newDoc)
+			});
 		})
 	;
 

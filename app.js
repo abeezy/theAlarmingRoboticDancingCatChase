@@ -30,7 +30,7 @@ app.listen(3000, function () {
 });
 
 
-var AlarmClock = require('./lib/alarm');
+var Alarm = require('./lib/alarm');
 var interval = setInterval(function() {
 	var now = new Date;
 	var currentTime = {
@@ -38,5 +38,5 @@ var interval = setInterval(function() {
 		minute: now.getMinutes()
 	};
 	console.log('time: ', currentTime);
-	AlarmClock(currentTime);
+	Alarm.alarmClock(currentTime);
 }, 60000);
