@@ -29,8 +29,8 @@ void loop() {
   // read the input on analog pin 0:
   if (analogRead(imp) == HIGH) {
     if (on == false) {
-      motorPin.digitalWrite(HIGH);
-      servoPin.digitalWrite(HIGH);
+      digitalWrite(motorPin, HIGH);
+      digitalWrite(servoPin, HIGH);
       on = true;
     } else {
       int sensorValue = analogRead(softPot);
