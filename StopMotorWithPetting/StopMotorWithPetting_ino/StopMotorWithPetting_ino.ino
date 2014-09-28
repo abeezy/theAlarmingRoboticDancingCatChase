@@ -11,26 +11,25 @@ int first3 = -1;
 int numPets = 0;
 int first = first1;
 const int motorPin = 9;
-const int servoPin = 6;
 char softPot = A0;
-char imp = A5;
+char impIn = A5;
 boolean on = false;
+const int impOut = 12;
 
 // the setup routine runs once when you press reset:
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
   pinMode(motorPin, OUTPUT);
-  pinMode(servoPin, OUTPUT);
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
   // read the input on analog pin 0:
-  if (analogRead(imp) == HIGH) {
+  int impOn = analogRead(impIn);
+  if (impOn > 450 && impOn < 800) {
     if (on == false) {
       digitalWrite(motorPin, HIGH);
-      digitalWrite(servoPin, HIGH);
       on = true;
     } else {
       int sensorValue = analogRead(softPot);
@@ -51,10 +50,19 @@ void loop() {
       }
     
       if (numPets == 3) {
+        Serial.println("I should not be run unless pet");
         digitalWrite(motorPin, LOW);
-        digitalWrite(servoPin, LOW);
+        digitalWrite(impOut, HIGH);
+        numPets = 0;
+        first1 = -1;
+        first2 = -1;
+        first3 = -1;
+        first = first1;
+        delay(200);
+        digitalWrite(impOut, LOW);
       } else if (numPets < 3) {
         if (first < 0 && sensorValue > 0 && sensorValue < 200) {
+          Serial.println("I'm setting first");
           first = sensorValue;
           Serial.println("low: ");
           Serial.println(first);
@@ -65,6 +73,9 @@ void loop() {
         }
       }
     }
+  } else {
+    digitalWrite(motorPin, LOW);
+    on = false;
   }
-  delay(100);    // delay in between reads for stability
+  delay(100);  // delay in between reads for stability
 }
