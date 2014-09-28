@@ -1,28 +1,28 @@
 doctype html
 html(lang="en")
 
-head
-	 title The Alarming Robotic Dancing Cat Chase
-    link(rel='stylesheet', href='/static/style.css', type='text/css')
-body
-    #content(align='center')
-      	h1 The Alarming Robotic Dancing Cat Chase
-    #step
-        h4 Step 1
-    form
-        h3 Set Your Clock
-        input#time(type='time', name='time')
-        #step
-          	h4 Step 2
-        h3 Choose Your Song
-        select#song(name='song')
-          	option(value='song1') song1
-         	option(value='song2') song2
-          	option(value='song3') song3
-          	option(value='song4') song4
-        #step
-          	h4 Step 3
-        input#submit(type='submit', value='Set Your Alarm')
-        button send the request!
+	head
+		title The Alarming Robotic Dancing Cat Chase
+		link(rel='stylesheet', href='/style.css', type='text/css')
+	body
+		#content(align='center')
+			h1 The Alarming Robotic Dancing Cat Chase
+			form(method="POST")
+				#step
+					h4 Step 1
+					h3 Set Your Clock
+					input#time(type='time', name='time')
+
+				#step
+					h4 Step 2
+					h3 Choose Your Song
+					select#song(name='song')
+						option(value='song1') song1
+						option(value='song2') song2
+						option(value='song3') song3
+						option(value='song4') song4
+				#step
+					h4 Step 3
+					input#submit(type='submit', value='Set Your Alarm')
 
 script(src="http://code.jquery.com/jquery-1.11.0.min.js")
