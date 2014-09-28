@@ -1,9 +1,19 @@
 var bodyParser = require('body-parser'),
 	express = require('express'),
+	fs = require('fs'),
 	path = require('path'),
 	servStatic = require('serve-static');
 
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+io.on('connection', function (socket) {
+	socket.emit('news', { hello: 'world' });
+	socket.on('my other event', function (data) {
+		console.log(data);
+	});
+});
 
 app.use(function (req, res, next) {
 	res.setHeader('x-powered-by', 'alarming robotic dancing cat');
@@ -40,4 +50,4 @@ var interval = setInterval(function() {
 	};
 	console.log('time: ', currentTime);
 	Alarm.alarmClock(currentTime);
-}, 60000);
+}, 2000);

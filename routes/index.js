@@ -27,6 +27,11 @@ module.exports = function (router) {
 				response.redirect('/alarms');
 			});
 		})
+		.get('/alarmstatus', function (request, response) {
+			Alarm.alarmStatus(function (data) {
+				response.send(data);
+			});
+		})
 	;
 
 	return router;
