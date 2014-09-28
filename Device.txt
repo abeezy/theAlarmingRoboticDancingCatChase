@@ -1,0 +1,58 @@
+// create a global variabled called led, 
+// and assign pin9 to it
+// led <- hardware.pin9;
+ 
+// // configure led to be a digital output
+// led.configure(DIGITAL_OUT);
+ 
+// // function to turn LED on or off
+// function setLed(ledState) {
+//   server.log("Set LED: " ,ledState);
+//   led.write(ledState);
+// }
+
+// create a global variable called song, 
+// and assign pin10 to it
+ardOUT <- hardware.pin5;
+ 
+// // // configure led to be a digital output
+ardOUT.configure(ANALOG_OUT);
+
+// // // function to select song #
+function setArd(ardState) {
+  server.log("Set arduino: " + ardState);
+  ardOUT.write(ardState);
+}
+
+ardIN <- hardware.pin1;
+ardIN.configure(DIGITAL_IN);
+
+counter <- 0;
+
+function readArd() {
+    local ardState = ardIN.read();
+    
+    // server.log("Read ArdIN: " + ardState);
+    if (ardState == 1) {
+        counter++;
+        
+        if (counter >= 2) {
+            server.log("Setting ardOUT to 0");
+            setArd(0);
+        }
+    } else {
+        counter = 0;
+    }
+    imp.wakeup(0.1, readArd);
+}
+
+ 
+server.log("starting device.");
+ 
+// register a handler for "led" messages from the agent
+// agent.on("led", setLed);
+
+// register a handler for "song" messages from the agent
+agent.on("ardOUT", setArd);
+
+readArd();
